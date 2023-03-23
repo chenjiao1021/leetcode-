@@ -1,8 +1,19 @@
-hello world!
-hello world!
-hello world!
-hello world!
-hello world!
-111
-lhc
-lhc3
+括号匹配
+class Solution {
+    public boolean isValid(String s) {
+        char[] ss=new char[5000];
+        int top=0;
+        if((s.length()%2)!=0)
+        return false;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('||s.charAt(i)=='{'||s.charAt(i)=='['){
+                ss[++top]=s.charAt(i);
+            }
+            else if((s.charAt(i)==')'&&ss[top]!='(')||(s.charAt(i)==']'&&ss[top]!='[')||(s.charAt(i)=='}'&&ss[top]!='{')){
+                return false;
+                }
+            else top--;
+                    }
+               return top==0? true:false;
+    }
+}
